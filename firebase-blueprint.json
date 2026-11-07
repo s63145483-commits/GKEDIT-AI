@@ -1,0 +1,122 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with authentication and real-time location telemetry",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 150
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 150
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "avatar": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "role": {
+          "type": "string",
+          "enum": ["creator", "editor", "developer", "explorer", "admin", "user"]
+        },
+        "location": {
+          "type": "object",
+          "description": "Detected user location via GPS or IP"
+        },
+        "device": {
+          "type": "object",
+          "description": "Extended browser and OS telemetry collected during session"
+        },
+        "behaviorProfile": {
+          "type": "object",
+          "description": "Secret predicted behavior mode intelligence and daily shift sync"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastActive": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email"]
+    },
+    "UserSettings": {
+      "title": "UserSettings",
+      "description": "User-specific application settings and preferences",
+      "type": "object",
+      "properties": {
+        "biometricEnabled": {
+          "type": "boolean"
+        },
+        "wakeWordEnabled": {
+          "type": "boolean"
+        },
+        "theme": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "AdminAuditSession": {
+      "title": "AdminAuditSession",
+      "description": "Security audit session record tracking administrator access to Creator Live User Monitor",
+      "type": "object",
+      "properties": {
+        "sessionId": { "type": "string", "maxLength": 128 },
+        "adminMaskedIdentifier": { "type": "string", "maxLength": 100 },
+        "accessMode": { "type": "string", "enum": ["tab", "modal"] },
+        "openedAt": { "type": "string", "format": "date-time" },
+        "openedAtFormatted": { "type": "string", "maxLength": 120 },
+        "lastHeartbeat": { "type": "string", "format": "date-time" },
+        "closedAt": { "type": "string", "format": "date-time" },
+        "durationSeconds": { "type": "number" },
+        "clearanceLevel": { "type": "string", "maxLength": 50 },
+        "device": { "type": "object" },
+        "status": { "type": "string", "enum": ["active", "closed"] }
+      },
+      "required": ["sessionId", "adminMaskedIdentifier", "accessMode"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document owned by the user with UID matching userId; collection-wide list reserved strictly for creator admin"
+    },
+    "/users/{userId}/settings/{settingId}": {
+      "schema": "UserSettings",
+      "description": "User private settings documents"
+    },
+    "/admin_audit_sessions/{sessionId}": {
+      "schema": "AdminAuditSession",
+      "description": "Immutable security audit session log recorded when admin accesses the monitor tab"
+    }
+  }
+}

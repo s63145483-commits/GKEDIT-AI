@@ -1,0 +1,700 @@
+@import "tailwindcss";
+
+:root {
+  --accent-color: #06b6d4;
+  --accent-color-light: #22d3ee;
+  --accent-color-dark: #0891b2;
+  --accent-color-rgb: 6, 182, 212;
+  --accent-color-light-rgb: 34, 211, 238;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --accent-border: rgba(6, 182, 212, 0.35);
+  --accent-bg-subtle: rgba(6, 182, 212, 0.15);
+  --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+}
+
+[data-accent="emerald"] {
+  --accent-color: #10b981;
+  --accent-color-light: #34d399;
+  --accent-color-dark: #059669;
+  --accent-color-rgb: 16, 185, 129;
+  --accent-color-light-rgb: 52, 211, 153;
+  --accent-glow: rgba(16, 185, 129, 0.4);
+  --accent-border: rgba(16, 185, 129, 0.35);
+  --accent-bg-subtle: rgba(16, 185, 129, 0.15);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #34d399 0%, #14b8a6 100%);
+}
+
+[data-accent="violet"] {
+  --accent-color: #8b5cf6;
+  --accent-color-light: #a78bfa;
+  --accent-color-dark: #7c3aed;
+  --accent-color-rgb: 139, 92, 246;
+  --accent-color-light-rgb: 167, 139, 250;
+  --accent-glow: rgba(139, 92, 246, 0.4);
+  --accent-border: rgba(139, 92, 246, 0.35);
+  --accent-bg-subtle: rgba(139, 92, 246, 0.15);
+  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+}
+
+[data-accent="orange"] {
+  --accent-color: #f97316;
+  --accent-color-light: #fb923c;
+  --accent-color-dark: #ea580c;
+  --accent-color-rgb: 249, 115, 22;
+  --accent-color-light-rgb: 251, 146, 60;
+  --accent-glow: rgba(249, 115, 22, 0.4);
+  --accent-border: rgba(249, 115, 22, 0.35);
+  --accent-bg-subtle: rgba(249, 115, 22, 0.15);
+  --accent-gradient: linear-gradient(135deg, #f97316 0%, #e11d48 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
+}
+
+[data-accent="rose"] {
+  --accent-color: #f43f5e;
+  --accent-color-light: #fb7185;
+  --accent-color-dark: #e11d48;
+  --accent-color-rgb: 244, 63, 94;
+  --accent-color-light-rgb: 251, 113, 133;
+  --accent-glow: rgba(244, 63, 94, 0.4);
+  --accent-border: rgba(244, 63, 94, 0.35);
+  --accent-bg-subtle: rgba(244, 63, 94, 0.15);
+  --accent-gradient: linear-gradient(135deg, #f43f5e 0%, #c026d3 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #fb7185 0%, #e879f9 100%);
+}
+
+[data-accent="blue"] {
+  --accent-color: #3b82f6;
+  --accent-color-light: #60a5fa;
+  --accent-color-dark: #2563eb;
+  --accent-color-rgb: 59, 130, 246;
+  --accent-color-light-rgb: 96, 165, 250;
+  --accent-glow: rgba(59, 130, 246, 0.4);
+  --accent-border: rgba(59, 130, 246, 0.35);
+  --accent-bg-subtle: rgba(59, 130, 246, 0.15);
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #070B14;
+    color: #f0f6fc;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Light Mode Global Theme Styles matching reference mockup */
+[data-theme="light"],
+.light-mode {
+  --bg-primary: #edf4f9;
+  --text-primary: #0a192f;
+  --text-muted: #475569;
+}
+
+[data-theme="light"] body,
+body.light-mode {
+  background-color: #edf4f9 !important;
+  background-image: radial-gradient(ellipse at 50% 0%, #d8ecf8 0%, #ebf4fa 50%, #f5f9fc 100%) !important;
+  color: #0a192f !important;
+}
+
+[data-theme="light"] .liquid-glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(240, 248, 255, 0.82) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  color: #0a192f !important;
+}
+
+[data-theme="light"] .liquid-glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.5) !important;
+}
+
+/* Light mode specific text and icon contrast */
+[data-theme="light"] .text-white {
+  color: #0a192f !important;
+}
+
+[data-theme="light"] .text-slate-100 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .text-slate-200 {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .text-slate-400 {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .bg-\[\#030712\],
+[data-theme="light"] .bg-\[\#020718\],
+[data-theme="light"] .bg-\[\#040e24\],
+[data-theme="light"] .bg-\[\#05132d\],
+[data-theme="light"] .bg-\[\#041029\],
+[data-theme="light"] .bg-\[\#03091e\] {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(226, 232, 240, 0.8) !important;
+  color: #0a192f !important;
+}
+
+[data-theme="light"] .border-cyan-500\/25,
+[data-theme="light"] .border-cyan-500\/30,
+[data-theme="light"] .border-cyan-500\/35,
+[data-theme="light"] .border-cyan-500\/40,
+[data-theme="light"] .border-cyan-400\/35,
+[data-theme="light"] .border-cyan-400\/40 {
+  border-color: rgba(6, 182, 212, 0.35) !important;
+}
+
+/* Fluid Custom scrollbar styled with current accent */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.7);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-glow, rgba(14, 165, 233, 0.35));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color-light, rgba(56, 189, 248, 0.7));
+}
+
+/* Glass card with GPU-friendly styling and dynamic accent border */
+.liquid-glass-card {
+  background: linear-gradient(135deg, rgba(13, 24, 48, 0.72) 0%, rgba(7, 14, 28, 0.88) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(2, 6, 23, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  contain: paint;
+}
+
+.liquid-glass-card:hover {
+  border-color: rgba(0, 242, 254, 0.35);
+  box-shadow: 0 12px 40px rgba(2, 6, 23, 0.75), 0 0 24px rgba(0, 242, 254, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.18);
+}
+
+/* Material 3 Expressive Liquid Glass Panel */
+.liquid-glass-panel {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.65) 0%, rgba(7, 11, 20, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Liquid Glass Floating Bottom Navigation Dock with 3D Droplet Glass Styling */
+.liquid-glass-3tab-dock {
+  background: linear-gradient(180deg, rgba(14, 22, 42, 0.82) 0%, rgba(7, 11, 22, 0.92) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 20px 48px rgba(0, 0, 0, 0.75),
+    0 0 24px rgba(0, 242, 254, 0.15),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.25),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 3D Liquid Droplet Refraction Highlight */
+.liquid-droplet-reflection {
+  position: absolute;
+  top: 1px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+[data-theme="light"] .liquid-glass-3tab-dock {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(245, 250, 255, 0.96) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    0 14px 32px rgba(15, 23, 42, 0.1),
+    0 0 20px rgba(6, 182, 212, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Active Golden Liquid Pill in Bottom Nav */
+.active-liquid-golden-pill {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.22) 0%, rgba(245, 158, 11, 0.16) 100%);
+  border: 1.5px solid #FFD700;
+  box-shadow: 
+    0 0 22px rgba(255, 215, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .active-liquid-golden-pill {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.35) 0%, rgba(245, 158, 11, 0.28) 100%) !important;
+  border: 1.5px solid #eab308 !important;
+  box-shadow: 
+    0 0 18px rgba(234, 179, 8, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Cosmic Radial Animated Glows */
+@keyframes cosmicPulseCyan {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.15) translate3d(20px, 15px, 0);
+    opacity: 0.35;
+  }
+}
+
+@keyframes cosmicPulsePurple {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.18;
+  }
+  50% {
+    transform: scale(1.12) translate3d(-15px, -20px, 0);
+    opacity: 0.3;
+  }
+}
+
+.cosmic-radial-cyan {
+  animation: cosmicPulseCyan 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.cosmic-radial-purple {
+  animation: cosmicPulsePurple 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Voice Wave Animation for Live Voice Capsule */
+@keyframes voiceWaveBar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.voice-wave-bar-1 { animation: voiceWaveBar 0.9s ease-in-out infinite 0.1s; }
+.voice-wave-bar-2 { animation: voiceWaveBar 0.9s ease-in-out infinite 0.3s; }
+.voice-wave-bar-3 { animation: voiceWaveBar 0.9s ease-in-out infinite 0.5s; }
+.voice-wave-bar-4 { animation: voiceWaveBar 0.9s ease-in-out infinite 0.2s; }
+
+@keyframes scan {
+  0% {
+    top: 5%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.8;
+  }
+}
+
+/* High-performance GPU-accelerated tab slide-in transitions (Zero blur filters) */
+@keyframes tabSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(16px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes tabSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-16px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-tab-slide-right {
+  animation: tabSlideInRight 0.18s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+.animate-tab-slide-left {
+  animation: tabSlideInLeft 0.18s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-tab-slide-right,
+  .animate-tab-slide-left {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Lottie-style hardware-accelerated pure CSS Weather Animations */
+@keyframes weatherSunSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes weatherSunPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.9)); }
+}
+
+@keyframes weatherCloudDrift {
+  0% { transform: translate3d(-3px, 0, 0); }
+  50% { transform: translate3d(4px, -1px, 0); }
+  100% { transform: translate3d(-3px, 0, 0); }
+}
+
+@keyframes weatherCloudPulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes weatherRainFall {
+  0% { transform: translate3d(0, -6px, 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translate3d(0, 14px, 0); opacity: 0; }
+}
+
+@keyframes weatherLightningFlash {
+  0%, 82%, 100% { opacity: 0.15; filter: drop-shadow(0 0 2px rgba(250, 204, 21, 0.3)); }
+  85%, 91% { opacity: 1; filter: drop-shadow(0 0 16px rgba(250, 204, 21, 1)); }
+  88% { opacity: 0.4; }
+}
+
+@keyframes weatherFogFlow {
+  0% { transform: translate3d(-8px, 0, 0); opacity: 0.4; }
+  50% { transform: translate3d(8px, 0, 0); opacity: 0.85; }
+  100% { transform: translate3d(-8px, 0, 0); opacity: 0.4; }
+}
+
+@keyframes weatherSnowFlurry {
+  0% { transform: translate3d(0, -4px, 0) rotate(0deg); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translate3d(4px, 14px, 0) rotate(180deg); opacity: 0; }
+}
+
+.anim-weather-sun-spin {
+  animation: weatherSunSpin 14s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.anim-weather-sun-pulse {
+  animation: weatherSunPulse 3.5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+.anim-weather-cloud-drift {
+  animation: weatherCloudDrift 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-weather-cloud-pulse {
+  animation: weatherCloudPulse 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-weather-rain-1 {
+  animation: weatherRainFall 0.85s linear infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-rain-2 {
+  animation: weatherRainFall 0.85s linear 0.28s infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-rain-3 {
+  animation: weatherRainFall 0.85s linear 0.56s infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-lightning {
+  animation: weatherLightningFlash 2.2s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
+.anim-weather-fog-1 {
+  animation: weatherFogFlow 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-fog-2 {
+  animation: weatherFogFlow 4s ease-in-out 1.5s infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-snow-1 {
+  animation: weatherSnowFlurry 2.2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.anim-weather-snow-2 {
+  animation: weatherSnowFlurry 2.2s ease-in-out 0.8s infinite;
+  will-change: transform, opacity;
+}
+
+/* Gesture OS: Custom touch-action and click ripple effects */
+.touch-swipe-container {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes cursorRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-cursor-ripple {
+  animation: cursorRipple 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Horizontal scroll utilities without clunky scrollbars */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   APPLE iOS "LIQUID GLASS" (DYNAMIC FLUID DROPLET) CAUSTICS & JELLY PHYSICS
+   ========================================================================== */
+
+/* Sleek floating frosted glass container with strict boundary containment */
+.liquid-glass-nav-container {
+  position: relative;
+  overflow: visible;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(8, 18, 38, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.65),
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  user-select: none;
+}
+
+/* Explicit scrollable modifier for horizontal liquid navigation bars */
+.liquid-glass-nav-scrollable {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+}
+
+/* Light / Translucent variant */
+.liquid-glass-nav-container.liquid-glass-light {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Active sliding liquid droplet indicator pill - True Glassy Caustic */
+.liquid-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  mix-blend-mode: overlay;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 0 20px var(--accent-glow, rgba(6, 182, 212, 0.35));
+  transform-origin: center center;
+  transition: 
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.2s ease;
+  will-change: transform, width, height;
+}
+
+/* Subtle Specular highlight glare at top edge */
+.glass-glare {
+  position: absolute;
+  top: 1px;
+  left: 12%;
+  right: 12%;
+  height: 38%;
+  border-radius: 9999px 9999px 50% 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Tactile micro-bounce on nav button taps */
+.liquid-nav-btn {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.4, 1), color 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.liquid-nav-btn:active {
+  transform: scale(0.92) !important;
+}
+
+/* ==========================================================================
+   LIQUID GLASS MODAL STYLING (MATCHING THE BOTTOM NAVIGATION BAR)
+   ========================================================================== */
+
+/* Fullscreen Backdrop Blur Overlay */
+.liquid-glass-modal-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(2, 6, 23, 0.75);
+}
+
+/* Modal Capsule / Dialog Container */
+.liquid-glass-modal-container {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(145deg, rgba(8, 18, 38, 0.9) 0%, rgba(3, 8, 22, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
+    0 0 20px -5px var(--accent-glow, rgba(6, 182, 212, 0.2));
+  position: relative;
+  isolation: isolate;
+}
+
+/* Subtle Specular Top Reflection for Modals */
+.liquid-glass-modal-glare {
+  position: absolute;
+  top: 1px;
+  left: 8%;
+  right: 8%;
+  height: 20%;
+  border-radius: 9999px 9999px 50% 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.03) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Modal Header subtle border & sheen */
+.liquid-glass-modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Security Gate PIN Error Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.25s ease-in-out 0s 2;
+}
+
+/* Liquid Glass Action Menu Dropup Animations (Cubic-Bezier Spring Bounce) */
+@keyframes liquidGlassDropupIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-liquid-glass-dropup {
+  animation: liquidGlassDropupIn 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: bottom left;
+}
+
+.liquid-glass-menu-surface {
+  background: linear-gradient(
+    145deg,
+    rgba(6, 18, 40, 0.94) 0%,
+    rgba(3, 10, 24, 0.96) 60%,
+    rgba(2, 6, 18, 0.98) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 211, 238, 0.32);
+  box-shadow:
+    0 16px 40px -12px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(6, 182, 212, 0.18),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+
+

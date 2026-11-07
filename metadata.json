@@ -1,0 +1,12 @@
+{
+  "name": "Remix GKEDIT AI",
+  "description": "Your versatile, expert AI assistant for web development and professional video editing, created by GK EDIT.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
